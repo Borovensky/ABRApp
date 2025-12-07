@@ -95,3 +95,22 @@ To learn more about React Native, take a look at the following resources:
 - [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
 - [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
 - [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+
+## Project Structure
+
+```text
+├── src/                # Main application code
+│   ├── api/            # API calls and related services
+│   ├── assets/         # Static assets (images, fonts, videos)
+│   │   ├── fonts/
+│   │   └── images/
+│   ├── components/     # Reusable UI components (e.g., Button, Input)
+│   ├── constants/      # Global constants (e.g., colors, strings, screen names)
+│   ├── hooks/          # Custom React hooks
+│   ├── navigation/     # Navigation configuration and navigators
+│   ├── screens/        # Main application screens/pages
+│   ├── services/       # Business logic or external service integrations
+│   ├── store/          # Global state management (e.g., Redux, Zustand)
+│   ├── styles/         # Global styles or themes
+│   └── utils/          # Utility functions and helpers
+```

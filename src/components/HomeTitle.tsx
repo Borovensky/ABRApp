@@ -1,6 +1,7 @@
 import { Button, Text, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { Ionicons } from '@react-native-vector-icons/ionicons';
 
 import type { RootStackParamList } from '../navigation/RootNavigator';
 
@@ -16,7 +17,8 @@ function HomeTitle({ title = 'ABR application' }: HomeTitleProps) {
   return (
     <View>
       <Text>{title}</Text>
-      <Button title="Click me" onPress={() => navigation.navigate('AddGoal')} />
+      <Ionicons name="home-outline" size={24} color="red" />
+      <Button title="Click me" onPress={() => navigation.navigate('Calendar')} />
     </View>
   );
 }

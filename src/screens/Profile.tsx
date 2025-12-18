@@ -1,9 +1,9 @@
 import { StyleSheet, View, Text } from 'react-native';
 
-function AddGoalScreen() {
+function ProfileScreen() {
   return (
     <View style={styles.container}>
-      <Text>Add Goal Screen</Text>
+      <Text>Profile Screen</Text>
     </View>
   );
 }
@@ -16,4 +16,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default AddGoalScreen;
+export default ProfileScreen;

@@ -1,8 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { mainSlice } from './main/slice';
+import { remindersSlice } from './reminders/slice';
 
 export const store = configureStore({
   reducer: {
-    main: mainSlice.reducer,
+    reminders: remindersSlice.reducer,
   },
 })

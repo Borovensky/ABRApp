@@ -8,39 +8,51 @@ import {
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { useDispatch } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 
-import { addReminder } from '../store/main/actions';
-import type { RootStackParamList } from '../navigation/RootNavigator';
+// import { addReminder } from '../store/main/actions';
+import type { RootStackParamList } from '../navigation/types';
+import { createReminder } from '../services/firestoreService';
 
-type AddScreenNavigationProp = NativeStackNavigationProp<RootStackParamList, 'Add'>;
+type ReminderScreenNavigationProp = NativeStackNavigationProp<RootStackParamList, 'Reminder'>;
 
-function AddScreen() {
-  const navigation = useNavigation<AddScreenNavigationProp>();
-  const dispatch = useDispatch();
+function ReminderScreen(props: any) {
+  const { params } = props.route;
 
-  const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
+  const navigation = useNavigation<ReminderScreenNavigationProp>();
+  // const dispatch = useDispatch();
+  
+  const [title, setTitle] = useState(params?.title || '');
+  const [description, setDescription] = useState(params?.description || '');
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
 
-  const handleAdd = () => {
+  const handleAdd = async () => {
     if (!title.trim() || !description.trim()) {
       setError('Title and Description are required');
       return;
     }
 
-    dispatch(
-      addReminder({
+    try {
+      setLoading(true);
+      setError('');
+
+      await createReminder({
         title: title.trim(),
         description: description.trim(),
-      }),
-    );
+      });
 
-    setTitle('');
-    setDescription('');
-    setError('');
+      setTitle('');
+      setDescription('');
+      setError('');
 
-    navigation.navigate('Tabs');
+      navigation.navigate('Tabs');
+    } catch (e) {
+      console.error(e);
+      setError('Something went wrong while saving. Please try again.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -65,7 +77,7 @@ function AddScreen() {
       {error ? <Text style={styles.error}>{error}</Text> : null}
 
       <View style={styles.buttonContainer}>
-        <Button title="Add" onPress={handleAdd} />
+        <Button title={loading ? 'Saving...' : 'Add'} onPress={handleAdd} />
       </View>
     </View>
   );
@@ -101,4 +113,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default AddScreen;
+export default ReminderScreen;

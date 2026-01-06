@@ -1,0 +1,1 @@
+export { RText } from './ui';

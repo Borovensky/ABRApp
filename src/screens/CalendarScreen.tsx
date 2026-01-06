@@ -2,7 +2,7 @@ import { StyleSheet, View, Text } from 'react-native';
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
-import { initialValue } from '../store/main/selectors';
+import { initialValue } from '../store/reminders/selectors';
 
 function CalendarScreen() {
   const value = useSelector(initialValue);

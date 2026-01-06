@@ -1,15 +1,15 @@
 // import Ionicons from "@react-native-vector-icons/ionicons";
 import { View, StyleSheet, Pressable } from "react-native";
-import { useTheme } from '@react-navigation/native';
-import RText from "./RText";
+import { useNavigation, useTheme } from '@react-navigation/native';
+import { RText } from "../RText";
+import { RootStackParamList } from "../../navigation/types";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { ReminderListItemProps } from "./types";
 
-type ReminderItemComponentProps = {
-  title: string;
-};
-
-function ReminderItemComponent(props: ReminderItemComponentProps) {
-  const { title } = props;
+export function ReminderListItem(props: ReminderListItemProps) {
+  const { title, description } = props;
   const theme = useTheme();
+  const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList, 'Reminder'>>();
 
   return (
     <Pressable
@@ -22,6 +22,10 @@ function ReminderItemComponent(props: ReminderItemComponentProps) {
       ]}
       onPress={() => {
         console.log('ReminderItemComponent pressed');
+        navigation.navigate('Reminder', {
+          title,
+          description,
+        });
       }}
     >
       <View style={styles.innerContainer}>
@@ -35,8 +39,6 @@ function ReminderItemComponent(props: ReminderItemComponentProps) {
     </Pressable>
   );
 }
-
-export default ReminderItemComponent;
 
 const styles = StyleSheet.create({
   container: {

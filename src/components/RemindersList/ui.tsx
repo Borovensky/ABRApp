@@ -1,31 +1,24 @@
 import { StyleSheet, FlatList, View } from 'react-native';
 // import { Ionicons } from '@react-native-vector-icons/ionicons';
+import { ReminderListItem } from '../ReminderListItem';
+import { RemindersListProps } from './types';
 
-import ReminderItemComponent from './ReminderItemComponent';
-
-type HomeTitleProps = {
-  title?: string;
-  data: any[];
-};
-
-function ItemsListComponent(props: HomeTitleProps) {
+export function RemindersList(props: RemindersListProps) {
   const { data } = props;
-
+ 
   return (
     <View style={styles.container}>
       <FlatList
         data={data}
-        renderItem={({ item }) => <ReminderItemComponent title={item.title} />}
+        renderItem={({ item }) => <ReminderListItem title={item.title} description={item.description} />}
         keyExtractor={item => item.id}
       />
     </View>
   );
 }
 
-export default ItemsListComponent;
-
 const styles = StyleSheet.create({
-  container: {
+  container: {  
     flex: 1,
     justifyContent: 'center',
   },

@@ -4,9 +4,9 @@ import {
   getFirestore,
   collection,
   addDoc,
-  serverTimestamp,
   getDocs,
 } from '@react-native-firebase/firestore';
+
 import type { FirebaseFirestoreTypes } from '@react-native-firebase/firestore';
 
 export type Reminder = {

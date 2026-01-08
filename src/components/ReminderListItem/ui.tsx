@@ -1,10 +1,11 @@
-// import Ionicons from "@react-native-vector-icons/ionicons";
-import { View, StyleSheet, Pressable } from "react-native";
 import { useNavigation, useTheme } from '@react-navigation/native';
-import { RText } from "../RText";
-import { RootStackParamList } from "../../navigation/types";
-import { NativeStackNavigationProp } from "@react-navigation/native-stack";
-import { ReminderListItemProps } from "./types";
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { View, StyleSheet, Pressable } from 'react-native';
+
+import { ABRText } from '@components/ABRRText';
+import { RootStackParamList } from '@navigation/types';
+
+import { ReminderListItemProps } from './types';
 
 export function ReminderListItem(props: ReminderListItemProps) {
   const { title, description } = props;
@@ -30,10 +31,10 @@ export function ReminderListItem(props: ReminderListItemProps) {
     >
       <View style={styles.innerContainer}>
         <View>
-          <RText>Title: {title}</RText>
+          <ABRText>Title: {title}</ABRText>
         </View>
         <View>
-          <RText>Period: 10:00 - 11:00</RText>
+          <ABRText>Period: 10:00 - 11:00</ABRText>
         </View>
       </View>
     </Pressable>

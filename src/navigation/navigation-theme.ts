@@ -1,6 +1,9 @@
 import { DarkTheme, DefaultTheme, Theme } from '@react-navigation/native';
-import type { ColorSchemeName } from 'react-native';
+
 import colors from '../constants/colors';
+
+import type { ColorSchemeName } from 'react-native';
+
 
 export const navigationLightTheme: Theme = {
   ...DefaultTheme,

@@ -8,6 +8,8 @@ function ProfileScreen() {
   );
 }
 
+export default ProfileScreen;
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -15,5 +17,3 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
 });
-
-export default ProfileScreen;

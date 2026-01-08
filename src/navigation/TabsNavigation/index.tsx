@@ -1,13 +1,14 @@
 import { createNativeBottomTabNavigator } from '@react-navigation/bottom-tabs/unstable';
-import HomeScreen from '../../screens/HomeScreen';
-import CalendarScreen from '../../screens/CalendarScreen';
-import ProfileScreen from '../../screens/Profile';
-import { TabsParamList } from '../types';
-import { RootRoutes, TabsRoutes } from '../screens';
+
+import { RootRoutes, TabsRoutes } from '@navigation/screens';
+import { TabsParamList } from '@navigation/types';
+import CalendarScreen from '@screens/Tabs/CalendarScreen';
+import HomeScreen from '@screens/Tabs/HomeScreen';
+import ProfileScreen from '@screens/Tabs/ProfileScreen';
 
 const Tab = createNativeBottomTabNavigator<TabsParamList>();
 
-export function TabsNavigator() {
+export function TabsNavigation() {
   return (
     <Tab.Navigator initialRouteName={TabsRoutes.Home}>
       <Tab.Screen

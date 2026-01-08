@@ -1,6 +1,7 @@
 import { StyleSheet, FlatList, View } from 'react-native';
-// import { Ionicons } from '@react-native-vector-icons/ionicons';
+
 import { ReminderListItem } from '../ReminderListItem';
+
 import { RemindersListProps } from './types';
 
 export function RemindersList(props: RemindersListProps) {

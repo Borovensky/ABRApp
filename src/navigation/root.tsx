@@ -1,17 +1,17 @@
-import { StatusBar } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { useTheme } from '../hooks/useTheme';
+import { StatusBar } from 'react-native';
 
-import { TabsNavigator } from './TabsNavigator';
-import ReminderScreen from '../screens/ReminderScreen';
-import { RootStackParamList } from './types';
-import { RootRoutes } from './screens';
+import { RootRoutes } from '@navigation/screens';
+import { TabsNavigation } from '@navigation/TabsNavigation';
+import { RootStackParamList } from '@navigation/types';
+import ReminderScreen from '@screens/ReminderScreen';
+import { useABRTheme } from '@src/hooks/useABRTheme';
 
 const RootStack = createNativeStackNavigator<RootStackParamList>();
 
-function RootNavigator() {
-  const { theme, colorScheme } = useTheme();
+export function RootNavigator() {
+  const { theme, colorScheme } = useABRTheme();
 
   return (
     <>
@@ -20,7 +20,7 @@ function RootNavigator() {
         <RootStack.Navigator>
           <RootStack.Screen
             name={RootRoutes.Tabs}
-            component={TabsNavigator}
+            component={TabsNavigation}
             options={{ headerShown: false }}
           />
           <RootStack.Screen
@@ -33,8 +33,4 @@ function RootNavigator() {
     </>
   );
 }
-
-export default RootNavigator;
-
-
-// 
+ 

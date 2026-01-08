@@ -1,5 +1,6 @@
+import { getRemindersService } from '@src/services/firestoreService';
+
 import { actions } from './slice';
-import { getRemindersService } from '../../services/firestoreService';
 
 export const {
   setReminders,

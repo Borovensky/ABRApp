@@ -1,4 +1,4 @@
-import { navigationDarkTheme, navigationLightTheme } from '../navigation/navigation-theme';
+import { navigationDarkTheme, navigationLightTheme } from '@navigation/navigation-theme';
 
 export const lightTheme = navigationLightTheme;
 

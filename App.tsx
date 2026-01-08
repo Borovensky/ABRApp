@@ -1,6 +1,7 @@
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import RootNavigator from './src/navigation/RootNavigator';
 import { Provider } from 'react-redux';
+
+import { RootNavigator } from './src/navigation/root';
 import { store } from './src/store/store';
 
 function App() {

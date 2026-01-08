@@ -1,10 +1,12 @@
-import { StyleSheet, View } from 'react-native';
-import { useTheme } from '@react-navigation/native';
-import { reminderDataSelector } from '../store/reminders/selectors';
-import { useDispatch, useSelector } from 'react-redux';
-import { getReminders } from '../store/reminders/actions';
 import { useEffect } from 'react';
-import { RemindersList } from '../components/RemindersList';
+
+import { useTheme } from '@react-navigation/native';
+import { StyleSheet, View } from 'react-native';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { RemindersList } from '@components/RemindersList'; 
+import { getReminders } from '@store/reminders/actions';
+import { reminderDataSelector } from '@store/reminders/selectors';
 
 function HomeScreen() {
   const theme = useTheme();
@@ -22,6 +24,8 @@ function HomeScreen() {
   );
 }
 
+export default HomeScreen;
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -30,4 +34,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default HomeScreen;
+

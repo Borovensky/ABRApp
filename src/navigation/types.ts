@@ -4,6 +4,8 @@ export type RootStackParamList = {
     title: string;
     description: string;
   };
+  Login: undefined;
+  Register: undefined;
 };
 
 export type TabsParamList = {
